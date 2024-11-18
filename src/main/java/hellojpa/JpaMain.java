@@ -40,16 +40,47 @@ public class JpaMain {
 
             /* JPQL */
             // 객체를 대상으로 조회를 함(객체지향 쿼리)
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(5)
-                    .setMaxResults(8)
-                    .getResultList();
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//                    .setFirstResult(5)
+//                    .setMaxResults(8)
+//                    .getResultList();
+//
+//            for (Member member : result) {
+//                System.out.println("member.name = " + member.getName());
+//            }
 
-            for (Member member : result) {
-                System.out.println("member.name = " + member.getName());
-            }
+            // 비영속
+//            Member member = new Member();
+//            member.setId(101L);
+//            member.setName("HelloJPA");
 
-            tx.commit();
+            // 영속
+            //em.persist(member);
+
+//            Member findMember1 = em.find(Member.class, 101L);
+//            Member findMember2 = em.find(Member.class, 101L);
+//
+//            System.out.println("result = " + (findMember1 == findMember2)); // result = true
+
+//            System.out.println("findMember.id = " + findMember.getId());
+//            System.out.println("findMember.name = " + findMember.getName());
+
+
+//            Member member1 = new Member(150L, "A");
+//            Member member2 = new Member(160L, "B");
+//
+//            em.persist(member1);
+//            em.persist(member2);
+
+//            Member member = em.find(Member.class, 150L);
+//            member.setName("ZZZZZ");
+
+            Member member = new Member(200L, "member200");
+            em.persist(member);
+
+            em.flush();
+
+            tx.commit(); // 이 시점에 데이터베이스에 적재
         } catch (Exception e) {
             tx.rollback();
         } finally {
