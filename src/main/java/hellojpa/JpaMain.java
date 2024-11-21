@@ -75,10 +75,18 @@ public class JpaMain {
 //            Member member = em.find(Member.class, 150L);
 //            member.setName("ZZZZZ");
 
-            Member member = new Member(200L, "member200");
-            em.persist(member);
+//            Member member = new Member(200L, "member200");
+//            em.persist(member);
 
-            em.flush();
+//            em.flush();
+
+            Member member = new Member();
+            member.setId(3L);
+            member.setUsername("C");
+            member.setRoleType(RoleType.GUEST);
+
+
+            em.persist(member);
 
             tx.commit(); // 이 시점에 데이터베이스에 적재
         } catch (Exception e) {
