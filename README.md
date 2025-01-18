@@ -1,6 +1,6 @@
 # 자바 ORM 표준 JPA 프로그래밍 - 기본편
 
-## JPA 시작하기
+## JPA 시작하기 
 - H2 database 실행
 - 라이브러리 셋팅
 - persistence.xml 에 대해
